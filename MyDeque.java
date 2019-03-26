@@ -53,7 +53,7 @@ public class MyDeque<E>{
   }
 
   public String toString(){
-    string result = "{";
+    String result = "{";
     if (this.size()== 0){
       return "{}";
     }
@@ -61,15 +61,41 @@ public class MyDeque<E>{
     while(index != end){
       result += data[index] + " ";
       index++;
+
+      if (index == data.length){
+        index = 0;
+      }
+      
     }
-    resuult += data[end]+ "}";
+    result += data[end]+ "}";
     return result;
     }
 
+  @SuppressWarnings("unchecked")
   public void resize(){
+    E[] resize = (E[]) new Object[data.length*2 + 1];
+
+    int index = end;
+    int resizedIndex = resize.length - 1;
+
+    while (index != start){
+      resize[resizedIndex] = data[index];
+      resizedIndex --;
+      index --;
+
+      if (index == -1){
+        index = data.length-1;
+      }
+    }
+
+    resize[resizedIndex] = data[index];
+
+    end = resize.length-1;
+    start = resizedIndex;
+    data = resize;
 
   }
-  
+
   public void addFirst(E element){ }
 
 public void addLast(E element){ }
