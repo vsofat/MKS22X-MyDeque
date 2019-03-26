@@ -48,11 +48,29 @@ public class MyDeque<E>{
     end = 0;
   }
 
-public int size(){ }
+  public int size(){
+    return size;
+  }
 
-public String toString(){ }
+  public String toString(){
+    string result = "{";
+    if (this.size()== 0){
+      return "{}";
+    }
+    int index = this.start;
+    while(index != end){
+      result += data[index] + " ";
+      index++;
+    }
+    resuult += data[end]+ "}";
+    return result;
+    }
 
-public void addFirst(E element){ }
+  public void resize(){
+
+  }
+  
+  public void addFirst(E element){ }
 
 public void addLast(E element){ }
 
