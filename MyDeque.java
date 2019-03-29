@@ -65,7 +65,7 @@ public class MyDeque<E>{
       if (index == data.length){
         index = 0;
       }
-      
+
     }
     result += data[end]+ "}";
     return result;
@@ -96,7 +96,44 @@ public class MyDeque<E>{
 
   }
 
-  public void addFirst(E element){ }
+  public void addFirst(E element){
+
+      if (element == null){
+        throw new NullPointerException("element can't be null");
+      }
+
+      if (size == 0) {
+        data[data.length-1] = element;
+        size ++;
+        start = data.length-1;
+        end = data.length-1;
+
+      }
+
+      else if (size() == data.length) {
+        // data is full
+        resize();
+        start --;
+        data[start] = element;
+        size++;
+      }
+
+      else if (start > 0) {
+        // data is not starting from the first spot available
+        // push everything up  until all spots are full
+        data[start-1] = element;
+        size++;
+        start--;
+      }
+
+      else if (start == 0) {
+        // you start in the very beginning
+        data[data.length-1] = element;
+        start = data.length-1;
+        // move it to the very end of the data and move the other way around (uses case above)
+        size++;a
+      }
+    }
 
 public void addLast(E element){ }
 
