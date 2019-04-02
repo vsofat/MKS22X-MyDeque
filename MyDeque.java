@@ -99,7 +99,7 @@ public class MyDeque<E>{
   public void addFirst(E element){
 
       if (element == null){
-        throw new NullPointerException("element can't be null");
+        throw new NullPointerException("ELEMENT THAT IS TRYING TO BE ADDED IS NULL. NULL ELEMENTS CAN'T BE ADDED.");
       }
 
       if (size == 0) {
@@ -131,11 +131,49 @@ public class MyDeque<E>{
         data[data.length-1] = element;
         start = data.length-1;
         // move it to the very end of the data and move the other way around (uses case above)
-        size++;a
+        size++;
       }
     }
 
-public void addLast(E element){ }
+public void addLast(E element){
+
+  if (element == null){
+    throw new NullPointerException("ELEMENT THAT IS TRYING TO BE ADDED IS NULL. NULL ELEMENTS CAN'T BE ADDED.");
+  }
+
+  if (size() == 0) {
+    // adds the element to the end
+    data[data.length-1] = element;
+    // starts and end are the same as data has size of 1
+    start = data.length-1;
+    end = data.length-1;
+    size++;
+
+  }
+
+  //if array is full, resize and add new element to first index.
+  else if (size() == data.length) {
+    // data is full
+    resize();
+    // added space
+    data[0] = element;
+    // used added space to move element to the very front
+    end = 0;
+    size++;
+  }
+  //if end is not at the last index of data (you can add to end+1)
+  else if (end != data.length-1) {
+    data[end+1] = element;
+    end++;
+    size++;
+  }
+  //else: if end is at last index but there is space in front.
+  else {
+    data[0] = element;
+    end = 0;
+    size++;
+  }
+}
 
 public E removeFirst(){ }
 
