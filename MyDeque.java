@@ -190,7 +190,7 @@ public E removeFirst(){
  }
 
 public E removeLast(){
-   if (size() ==0) throw new NoSuchElementException("ELEMENT THAT IS TRYING TO BE ADDED IS NULL. NULL ELEMENTS CAN'T BE ADDED.");
+   if (size() == 0) throw new NoSuchElementException("ELEMENT THAT IS TRYING TO BE ADDED IS NULL. NULL ELEMENTS CAN'T BE ADDED.");
    E holder = data[end];
    data[end] = null;
    if (end == 0){
@@ -201,8 +201,17 @@ public E removeLast(){
    return holder;
  }
 
+   public E getFirst(){
+     if (size() == 0){
+      throw new NoSuchElementException("ELEMENT THAT IS TRYING TO BE ADDED IS NULL. NULL ELEMENTS CAN'T BE ADDED.");
+    }
+     return data[start];
+   }
 
-public E getFirst(){ }
-
-public E getLast(){ }
-}
+   public E getLast(){
+     if (size() == 0){
+      throw new NoSuchElementException("ELEMENT THAT IS TRYING TO BE ADDED IS NULL. NULL ELEMENTS CAN'T BE ADDED.");
+    }
+     return data[end];
+   }
+ }
