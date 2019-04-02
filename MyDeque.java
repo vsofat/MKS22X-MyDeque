@@ -175,9 +175,32 @@ public void addLast(E element){
   }
 }
 
-public E removeFirst(){ }
+public E removeFirst(){
+   if (size() == 0){
+     throw new NoSuchElementException("ELEMENT THAT IS TRYING TO BE ADDED IS NULL. NULL ELEMENTS CAN'T BE ADDED.");
+   }
+   E holder = data[start];
+   data[start] = null;
+   if (start == data.length-1){
+     start = 0;
+   }
+   else start++;
+   size--;
+   return holder;
+ }
 
-public E removeLast(){ }
+public E removeLast(){
+   if (size() ==0) throw new NoSuchElementException("ELEMENT THAT IS TRYING TO BE ADDED IS NULL. NULL ELEMENTS CAN'T BE ADDED.");
+   E holder = data[end];
+   data[end] = null;
+   if (end == 0){
+    end = data.length-1;
+  }
+   else end --;
+   size--;
+   return holder;
+ }
+
 
 public E getFirst(){ }
 
