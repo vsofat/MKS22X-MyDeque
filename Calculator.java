@@ -18,6 +18,15 @@ public class Calculator{
         //reaches here if not a number.
         String data = split[i];
         if (cur.equals("+")) {
-          double curr_num = nums.getLast();
+          double first = nums.getLast();
           //need to remove right away so getLast() works next.
           nums.removeLast();
+
+          double second = nums.getLast();
+          nums.removeLast();
+          //add the sum to nums
+          nums.addLast(first+second);
+        }
+      }
+    }
+  }
