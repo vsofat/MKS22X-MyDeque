@@ -14,7 +14,8 @@ public class Calculator{
       try {
         num = Double.parseDouble(split[i]);
         nums.addLast(num);
-      }catch (NumberFormatException e) {
+      }
+    catch (NumberFormatException e) {
         //reaches here if not a number
         String DATA = split[i];
 
@@ -73,9 +74,12 @@ public class Calculator{
             //add the sum to nums
             nums.addLast(first%second);
           }
+      }
 
-        }
+      //iterate forward
+      i++;
+    }
+      return nums.getLast();
 
       }
     }
-  }
