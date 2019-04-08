@@ -15,18 +15,29 @@ public class Calculator{
         num = Double.parseDouble(split[i]);
         nums.addLast(num);
       }catch (NumberFormatException e) {
-        //reaches here if not a number.
+        //reaches here if not a number
         String data = split[i];
+
+        // ADDITION
         if (cur.equals("+")) {
           double first = nums.getLast();
-          //need to remove right away so getLast() works next.
-          nums.removeLast();
+          nums.removeLast(); // remove the number you just got
 
           double second = nums.getLast();
-          nums.removeLast();
-          //add the sum to nums
-          nums.addLast(first+second);
+          nums.removeLast(); // remove the number you just got
+          nums.addLast(first+second); // sum in your nums
         }
+
+        //SUBTRACTION
+        else if (cur.equals("-")) {
+            double second = nums.getLast();
+            nums.removeLast(); // remove the number you just got
+
+            double first = nums.getLast();
+            nums.removeLast(); // remove the number you just got
+
+            nums.addLast(second-first); // differnece added to your nums
+          }
       }
     }
   }
