@@ -38,6 +38,17 @@ public class Calculator{
 
             nums.addLast(second-first); // differnece added to your nums
           }
+
+        else if (cur.equals("*")) {
+              double n1 = nums.getLast();
+              //need to remove right away so getLast() works next
+              nums.removeLast();
+
+              double n2 = nums.getLast();
+              nums.removeLast();
+              //add the sum to nums
+              nums.addLast(n1*n2);
+                  }
       }
     }
   }
