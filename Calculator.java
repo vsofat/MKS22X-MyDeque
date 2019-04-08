@@ -52,15 +52,29 @@ public class Calculator{
 
         // DIVISION
         else if (DATA.equals("/")) {
-              double n2 = nums.getLast();
+              double second = nums.getLast();
               //need to remove right away so getLast() works next.
               nums.removeLast();
 
-              double n1 = nums.getLast();
+              double first = nums.getLast();
               nums.removeLast();
               //add the sum to nums
-              nums.addLast(n1/ n2);
+              nums.addLast(second/first);
             }
+
+      //MODULA
+      else if (DATA.equals("%")) {
+            double second = nums.getLast();
+            //need to remove right away so getLast() works next.
+            nums.removeLast();
+
+            double first = nums.getLast();
+            nums.removeLast();
+            //add the sum to nums
+            nums.addLast(first%second);
+          }
+
+        }
 
       }
     }
